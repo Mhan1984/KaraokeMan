@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Civic Ledger - Engine Loading Update</title>
+    <link rel="stylesheet" href="css/civic.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+            <div id="loading-title">🌍 CIVIC LEDGER</div>
+        <div id="loading-sub">Initializing Simulation Engine & Procedural Maps...</div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="progress-text">Processing: 0%</div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls-info">
+        <strong>Movement Controls:</strong><br>
+        W = Forward | S = Backward<br>
+        A = Strafe Left | D = Strafe Right<br>
+        Scroll Up = Fly Up ⬆️<br>
+        Scroll Down = Fly Down ⬇️<br><br>
+        <strong>Camera Hotkeys (Hold Shift):</strong><br>
+        Shift + A = Turn Left ↩️<br>
+        Shift + D = Turn Right ↪️<br>
+        Shift + W = Look Up ⬆️<br>
+        Shift + S = Look Down ⬇️<br><br>
+        <em>Click the ℹ️ button to hide/show this panel.</em>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud-right-container">
+        <div id="city-level-info">⭐ Level <span id="lvl-display">1</span></div>
+        
+        <div id="wallet-info" class="hud-card">
+            <canvas id="coin-icon"></canvas><span id="cash-display">1,500</span>
+        </div>
+
+        <div id="food-info" class="hud-card" title="Food Supply / Consumption Rate">
+            <span class="hud-icon">🍞</span>
+            <div class="hud-stat-text">
+                <div><span id="food-display">525</span> kg</div>
+                <small id="food-duration">Stable for 7 Days</small>
+            </div>
+        </div>
+
+        <div id="water-info" class="hud-card" title="Water Supply / Consumption Rate">
+            <span class="hud-icon">💧</span>
+            <div class="hud-stat-text">
+                <div><span id="water-display">735</span> L</div>
+                <small id="water-duration">Stable for 7 Days</small>
+            </div>
+        </div>
+
+        <div id="pop-info" class="hud-card" title="Current Population">
+            <span class="hud-icon">👥</span>
+            <div class="hud-stat-text">
+                <span id="pop-display">5</span>
+                <small>Citizens</small>
+            </div>
+        </div>
+
+        <button id="info-toggle-btn" title="Toggle Hotkeys Info">ℹ️</button>
+    </div>
+
+    <!-- Build Menu -->
+    <div id="build-hud-container">
+        <div id="build-sub-panel"></div>
+        <div id="build-items-panel">
+            <button class="build-item" onclick="openSubMenu('daan')"><span>🛣️</span>Daan</button>
+            <button class="build-item" onclick="openSubMenu('bahay')"><span>🏠</span>Bahay</button>
+            <button class="build-item" onclick="openSubMenu('service')"><span>🛡️</span>Service</button>
+            <button class="build-item" onclick="openSubMenu('store')"><span>🛒</span>Store</button>
+            <button class="build-item" onclick="openSubMenu('factory')"><span>🏭</span>Factory</button>
+            <button class="build-item" onclick="openSubMenu('office')"><span>🏢</span>Office</button>
+        </div>
+        <button id="build-main-btn">🛠️ Build Menu</button>
+    </div>
+
+    <div id="ui-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
+    <script src="Js/Buildings.js"></script>
+    <script src="Js/Economy.js"></script>
+    <script src="Js/World.js"></script>
+    <script src="Js/RoadTextures.js"></script>
+    <script src="Js/Workers.js"></script>
+    <script src="Js/Roads.js"></script>
+    <script src="Js/Loading.js"></script>
+    <script src="Js/Ui.js"></script>
+    <script src="Js/Main.js"></script>
+
+</body>
+</html>
