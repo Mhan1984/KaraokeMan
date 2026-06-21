@@ -1,0 +1,29 @@
+/* Layout para sa Game Grid */
+.game-grid 
+    { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px; 
+        max-width: 1200px; 
+        margin: auto; 
+        padding: 20px;
+    }
+
+.game-card 
+    { 
+        background: rgba(0, 0, 0, 0.7); /* Para mag-blend sa dark background */
+        padding: 30px; 
+        border-radius: 15px; 
+        text-align: center; 
+        border: 1px solid #ff7200;
+        color: white;
+        transition: 0.3s;
+    }
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: white;
+}
+
+.game-card h3 { font-size: 24px; margin-bottom: 10px; }
+.game-card p { margin-bottom: 20px; color: #ccc; }

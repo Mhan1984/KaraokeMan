@@ -1,0 +1,44 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body 
+    { 
+        width: 100%; 
+        height: 100vh; 
+        background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2074'); 
+        background-size: cover; background-position: center; font-family: sans-serif; 
+    }
+
+.main { width: 100%; }
+
+.navbar { width: 1200px; height: 75px; margin: auto; display: flex; align-items: center; justify-content: space-between; }
+
+.logo { 
+    color: #ff7200; 
+    font-size: 30px; 
+    font-weight: 800; /* Mas bold */
+    text-transform: uppercase; /* Para mas "official" */
+    letter-spacing: 2px; /* Mas maluwag, mas modern */
+    cursor: pointer; 
+}
+
+.menu ul { display: flex; list-style: none; }
+.menu ul li { margin-left: 20px; }
+.menu ul li a { text-decoration: none; color: white; font-weight: bold; }
+
+.search { width: 330px; float: left; margin-left: 270px; display: flex; }
+.srch { border: 1px solid #ff7200; width: 200px; height: 40px; padding: 10px; border-radius: 5px; }
+.btn { width: 100px; height: 40px; background: #ff7200; border: none; color: white; border-radius: 5px; cursor: pointer; }
+
+.content { width: 1200px; height: auto; margin: auto; color: white; padding-top: 100px; }
+.content h1 { font-size: 50px; }
+.content span { color: #ff7200; }
+.content .par { margin-top: 20px; }
+
+.form { width: 250px; height: 380px; background: rgba(0,0,0,0.8); position: absolute; top: 150px; right: 100px; padding: 25px; border-radius: 10px; }
+.form h2 { text-align: center; margin-bottom: 20px; }
+.form input { width: 100%; height: 40px; margin-bottom: 10px; padding: 10px; border-radius: 5px; border: none; }
+.form .btn { width: 100%; margin-top: 10px; }
+
+.icons { display: flex; justify-content: center; margin-top: 10px; gap: 10px; }
+.icons a { color: white; font-size: 25px; }

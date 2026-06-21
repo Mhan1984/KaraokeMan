@@ -1,0 +1,351 @@
+
+/* ito yung sa Style.css ko */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    cursor: default; 
+    font-family: Arial, sans-serif;
+}
+
+/* -----------------------------------------
+    BAGONG UPDATE: LOADING SCREEN & PROGRESS BAR
+----------------------------------------- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d1117; /* Madilim na futuristic background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Siguraduhing nasa pinaka-itaas ng lahat */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    color: white;
+    user-select: none;
+}
+
+#loading-title {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #00bcff;
+    text-shadow: 0 0 10px rgba(0, 188, 255, 0.5);
+}
+
+#loading-sub {
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 25px;
+}
+
+/* Ang lalagyan ng progress bar */
+#progress-container {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #30363d;
+    padding: 4px;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Ang mismong gumagalaw na bar */
+#progress-bar {
+    width: 0%; /* Magsisimula sa 0% */
+    height: 16px;
+    background: linear-gradient(90deg, #0066cc, #00bcff);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px #00bcff;
+}
+
+#progress-text {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+/* -----------------------------------------
+    KALIWANG PANEL: Controls Info (INILIPAT SA GITNA)
+----------------------------------------- */
+#controls-info {
+    position: absolute;
+    top: 20px;
+    /* Inilipat sa gitna gamit ang 50% at transform alignment */
+    left: 50%;
+    color: white;
+    background: rgba(0, 0, 0, 0.85); /* Medyo pinadilim para mas madaling basahin */
+    padding: 15px;
+    border-radius: 10px;
+    pointer-events: none;
+    user-select: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; 
+    /* Naka-angat ng bahagya habang nakatago */
+    transform: translate(-50%, -20px); 
+    z-index: 100;
+    width: 280px;
+    text-align: center; /* Gitna ang mga teksto para mas malinis tingnan */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+#controls-info.visible {
+    opacity: 1;
+    /* Swabeng bababa sa tamang pwesto kapag binuksan */
+    transform: translate(-50%, 0);
+}
+
+/* -----------------------------------------
+    KANANG PANEL: Wallet, Food, Water & Info
+----------------------------------------- */
+#hud-right-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px; 
+    z-index: 100;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 70%;
+}
+
+/* Common class para sa lahat ng HUD items para pantay ang disenyo */
+.hud-card {
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    height: 42px;
+    box-sizing: border-box;
+}
+
+#city-level-info {
+    color: #ffd700;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    user-select: none;
+    height: 42px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+#food-info { border-color: #ff9800; } /* Orange border para sa Food */
+#water-info { border-color: #2196f3; } /* Blue border para sa Water */
+
+#coin-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #b8860b;
+}
+
+.hud-icon {
+    font-size: 22px;
+}
+
+/* Container para sa Text at Sub-text duration */
+.hud-stat-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.hud-stat-text small {
+    font-size: 10px;
+    font-weight: normal;
+    color: #b0c4de;
+    margin-top: 1px;
+}
+
+
+
+/* -----------------------------------------
+    BUILD MENU & SUB-PANELS
+----------------------------------------- */
+#city-level-info {
+    color: #ffd700;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    user-select: none;
+}
+
+#build-hud-container {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    z-index: 100;
+    width: 90%;
+    max-width: 800px;
+}
+
+#build-sub-panel {
+    background: rgba(10, 20, 30, 0.95);
+    border: 2px solid #00bcff;
+    border-radius: 12px;
+    padding: 15px;
+    display: none; 
+    gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    box-shadow: 0 -5px 25px rgba(0, 188, 255, 0.2);
+    box-sizing: border-box;
+}
+
+#build-items-panel {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #ffd700;
+    padding: 12px;
+    border-radius: 15px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; 
+}
+
+#build-items-panel.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.build-item, .sub-item-card {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 75px;
+    height: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 11px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.build-item span, .sub-item-card .icon { font-size: 24px; }
+.build-item:hover { background: rgba(255, 215, 0, 0.2); border-color: #ffd700; }
+
+.sub-item-card {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.sub-item-card:hover:not(.disabled):not(.insufficient-funds) {
+    background: rgba(0, 188, 255, 0.2);
+    border-color: #00bcff;
+    transform: translateY(-3px);
+}
+
+.sub-item-card.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: rgba(50, 0, 0, 0.3);
+    border-color: #ff3333;
+}
+
+.sub-item-card.disabled::after {
+    content: "🔒 LOCKED";
+    position: absolute;
+    bottom: 5px;
+    font-size: 9px;
+    color: #ff3333;
+    font-weight: bold;
+}
+
+/* FIXED: Dagdag CSS style para sa kulang sa pera */
+.sub-item-card.insufficient-funds {
+    opacity: 0.6;
+    background: rgba(40, 30, 10, 0.4);
+}
+
+.sub-item-card .specs {
+    font-size: 9px;
+    color: #b0c4de;
+    line-height: 1.2;
+}
+
+#build-main-btn {
+    background: rgba(0, 102, 204, 0.85); 
+    color: white;
+    border: 2px solid #00bcff;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+}
+#build-main-btn:hover { background: #00bcff; color: black; transform: scale(1.05); }
+
+
+.floating-ui {
+    position: absolute;
+    display: flex;
+    gap: 15px; /* Dagdagan ang gap para hindi magdikit */
+    z-index: 2000; /* Siguraduhing mas mataas sa HUD */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Para makita mo kung saan ang container */
+    border-radius: 50px;
+}
+
+.btn-ui {
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-check {
+    background: #00ffaa;
+}
+
+.btn-cancel {
+    background: #ff4444;
+    color: white;
+}
